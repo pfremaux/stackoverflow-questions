@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<video id="videoId" autoplay loop playsinline controls muted src="/watch" type="video/mp4" preload="auto" style="width: 640px; height: 480px;">
+</video>
+
+
+<div id="debugId"></div>
+
+<script>
+    const videoTag = document.getElementById('videoId');
+    videoTag.addEventListener("loadeddata", (event) => {
+        console.log("loadeddata");
+    });
+    videoTag.addEventListener("error", (event) => {
+         document.getElementById("debugId").innerHTML =event.target.error.code + " : " + event.target.error.message;
+    });
+</script>
+
+</body>
+</html>
